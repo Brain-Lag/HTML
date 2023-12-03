@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        
+// let name = prompt("Как вас зовут?");
+// alert(`Здравствуйте, ${name}`);
+// document.write(`Здравствуйте, ${name} <br>`);
+
+// let likesCats = confirm("Вам нравятся кошки?");
+
+// if (likesCats) {
+//     document.write("Купите кошку.");
+// } else {
+//     document.write("Тогда купите собаку.");
+// }
+
+
+let cats = [
+    { name: "Коржик", price: 10000, food: "Purina pro-plan" },
+    { name: "Карамелька", price: 12000, food: "Whiskas" },
+    { name: "Компот", price: 9000, food: "Cайра" },
+    { name: "Сажик", price: 15000, food: "Royal Canin" }
+];
+
+let dogs = [
+    { name: "Барон", price: 20000, food: "Кости" },
+    { name: "Рекс", price: 18000, food: "Свинина" },
+    { name: "Мухтар", price: 22000, food: "Корм Мираторг" },
+    { name: "Черныш", price: 16000, food: "Royal Canin" }
+];
+
+
+let choice = prompt("Кошка или собака?:").toLowerCase();
+
+
+if (choice === "кошка") {
+    let namesArray = cats.map(function(cat) {
+        return cat.name;
+    });
+    let chosenName = prompt("Выберите имя из списка: " + namesArray.join(", "));
+
+    let chosenCat = cats.find(function(cat) {
+        return cat.name === chosenName;
+    });
+
+    if (chosenCat) {
+        let foodQuantity = prompt("Сколько корма нужно купить животному?");
+
+        let totalCost = (chosenCat.price + foodQuantity * 50);
+
+        alert("Стоимость животного: " + chosenCat.price + " рублей\n" +
+            "Стоимость корма: " + (foodQuantity * 50) + " рублей\n" +
+            "Общая стоимость покупки: " + totalCost + " рублей");
+    }
+} else if (choice === "собака") {
+    let namesArray = dogs.map(function(dog) {
+        return dog.name;
+    });
+    let chosenName = prompt("Выберите имя из списка: " + namesArray.join(", "));
+
+    let chosenDog = dogs.find(function(dog) {
+        return dog.name === chosenName;
+    });
+
+    if (chosenDog) {
+        let foodQuantity = prompt("Сколько корма нужно купить животному?");
+
+        let totalCost = (chosenDog.price + foodQuantity * 50);
+
+        alert("Стоимость животного: " + chosenDog.price + " рублей\n" +
+            "Стоимость корма: " + (foodQuantity * 50) + " рублей\n" +
+            "Общая стоимость покупки: " + totalCost + " рублей");
+    }
+}
+// // Кодирование текста
+// function encodeText(text) {
+//     const alphabet = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя";
+//     let encodedText = "";
+
+//     for (let i = 0; i < text.length; i++) {
+//         let char = text[i].toLowerCase(); // Преобразование к нижнему регистру
+
+//         if (alphabet.includes(char)) {
+//             let charCode = alphabet.indexOf(char) + 1;
+//             encodedText += charCode + " ";
+//         } else {
+//             encodedText += char; // Символы, не являющиеся буквами, остаются без изменений
+//         }
+//     }
+
+//     return encodedText.trim(); // Удаление последнего пробела
+// }
+
+
+// // Декодирование текста
+// function decodeText(encodedText) {
+//     const alphabet = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя";
+//     const codes = encodedText.split(" ");
+//     let decodedText = "";
+
+//     for (let i = 0; i < codes.length; i++) {
+//         let code = parseInt(codes[i]);
+
+//         if (!isNaN(code) && code >= 1 && code <= 33) {
+//             let char = alphabet[code - 1];
+//             decodedText += char;
+//         } else {
+//             decodedText += codes[i] + " ";
+//         }
+//     }
+
+//     return decodedText.trim();
+// }
+
+// let inputText = prompt("Введите фразу");
+// let encodedText = encodeText(inputText);
+// console.log("Закодированный текст:", encodedText);
+// let decodedText = decodeText(encodedText);
+// console.log("Декодированный текст в обратном порядке:", decodedText.split("").reverse().join(""));
+
+
+// //2ч
+// function decimalToBaseN(number, base) {
+//     if (base < 2 || base > 10) {
+//         return "Недопустимая система счисления. Введите число от 2 до 10.";
+//     }
+
+//     let result = "";
+//     while (number > 0) {
+//         let remainder = number % base;
+//         result = remainder + result;
+//         number = Math.floor(number / base);
+//     }
+
+//     return result === "" ? "0" : result;
+// }
+
+// let decimalNumber = prompt("Введите натуральное число в десятичной системе:");
+// let targetBase = prompt("Введите целевую систему счисления (от 2 до 10):");
+
+// if (decimalNumber !== null && targetBase !== null) {
+//     decimalNumber = parseInt(decimalNumber);
+//     targetBase = parseInt(targetBase);
+
+//     if (!isNaN(decimalNumber) && !isNaN(targetBase) && decimalNumber > 0 && targetBase >= 2 && targetBase <= 10) {
+//         let result = decimalToBaseN(decimalNumber, targetBase);
+//         console.log(`Число ${decimalNumber} в ${targetBase}-й системе счисления: ${result}`);
+//     } else {
+//         alert("Введите корректные значения.");
+//     }
+// } else {
+//     alert("Отменено пользователем.");
+// }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

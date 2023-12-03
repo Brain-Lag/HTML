@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Favorite Movie Characters</title>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <style>
+    div {
+        font-size: 15pt;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="movieCharacters"></div>
+
+  <script>
+    var favoriteCharacters = [
+      {
+        name: "Питер Паркер",
+        movie: "Кинематографическая вселенная Marvel",
+        description: "Ученик Мидтаунской школы науки и технологий, который получил способности после укуса радиоактивного паука.",
+      },
+      {
+        name: "Тони Старк",
+        movie: "Кинематографическая вселенная Marvel",
+        description: `Старк изначально изображён гениальным изобретателем, промышленником и плейбоем, 
+        являющимся генеральным директором компании «Stark Industries». Первоначально он являлся производителем оружия для 
+        вооружённых сил США, но впоследствии меняет своё мнение и перенаправляет свои технические знания на создание механизированных 
+        доспехов.`,
+      },
+      {
+        name: "Тор",
+        movie: "Кинематографическая вселенная Marvel",
+        description: "один из самых могущественных Асгардцев древней инопланетной цивилизации с давними связями с Землёй, которых люди считают Богами, владеет мощным молотом Мьёльнир.",
+      },
+    ];
+
+    function addMovieCharacters() {
+      var container = $("#movieCharacters");
+
+      for (var i = 0; i < favoriteCharacters.length; i++) {
+        var characterDiv = $("<div>");
+
+        characterDiv.append("<h2>" + favoriteCharacters[i].name + "</h2>");
+        characterDiv.append("<p><strong>Фильм:</strong> " + favoriteCharacters[i].movie + "</p>");
+        characterDiv.append("<p><strong>Описание:</strong> " + favoriteCharacters[i].description + "</p>");
+
+        container.append(characterDiv);
+      }
+    }
+
+    $(document).ready(function() {
+      addMovieCharacters();
+    });
+
+    var quatrain = [
+    "Я вас любил: любовь ещё, быть может",
+    "В душе мой угасла не совсем",
+    "Но пусть она вас больше не тревожит",
+    "Я не хочу печалить вас ничем"
+    ];
+
+    var correctLinesCount = 0;
+
+    for (var i = 0; i < quatrain.length; i++) {
+    // Запрос ввода строки у пользователя
+    var userLine = prompt("Введите строку " + (i + 1) + ":");
+
+    // Сравнение введенной строки с соответствующей строкой из четверостишия
+    if (userLine === quatrain[i]) {
+        correctLinesCount++;
+    }
+    }
+
+    // Вывод результата
+    console.log("Количество правильно введенных строк: " + correctLinesCount);
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        let planets = [
+            {name : "Mercury", distance : 0.387},
+            {name : "Venus", distance : 0.723},
+            {name : "Earth", distance : 1},
+            {name : "Mars", distance : 1.52},
+            {name : "Jupiter", distance : 5.2},
+            {name : "Saturn", distance : 9.53},
+            {name : "Uranus", distance : 19.2},
+            {name : "Neptune", distance : 30}
+        ];
+        for (let i = 0; i < planets.length; i++){
+            if (planets[i].distance <= 1){
+                console.log(planets[i].name);
+            }
+        }
+
+        let players = [
+            {surname : "Винсент", height : 188, weight : 91},
+            {surname : "Расселл", height : 193, weight : 88},
+            {surname : "Худ-Шифино", height : 198, weight : 98},
+            {surname : "Ходж", height : 193, weight : 84},
+            {surname : "Фадж", height : 206, weight : 91},
+            {surname : "Реддиш", height : 201, weight : 98},
+            {surname : "Джеймс", height : 206, weight : 113},
+            {surname : "Льюис", height : 201, weight : 88},
+            {surname : "Принс", height : 198, weight : 99}
+        ];
+        for (let i = 0; i < players.length; i++){
+            if (players[i].height >= 200){
+                console.log(players[i].surname);
+            }
+        }
+
+        //Защита
+        let inputCalories = parseInt(prompt("Введите требуемое число калорий: "));
+        let products = [
+            {name : "Арбуз", weight : 100, calories : 50},
+            {name : "Дыня", weight : 100, calories : 40},
+            {name : "Семечки", weight : 100, calories : 100},
+            {name : "Картошка", weight : 100, calories : 150},
+            {name : "Гречка", weight : 100, calories : 103},
+            {name : "Рис", weight : 100, calories : 180},
+            {name : "Яблоко", weight : 100, calories : 55}
+        ];
+        let minDifference = 1000;
+        function FindMinCaloriesProducts(products){
+            if (inputCalories < 145){
+                return ["-", "-", "-", "-"];       
+            }
+            let outProductsArray = [];
+            products.sort((a,b) => a.calories - b.calories);
+            for(let i = 0; i < products.length-2; i++){
+                caloriesSum = products[i].calories + products[i+1].calories + products[i+2].calories;
+                if (caloriesSum <= inputCalories){
+                    outProductsArray[i] = [products[i].name, products[i+1].name, products[i+2].name, caloriesSum];
+                }
+            }
+            console.log(products);
+            console.log(outProductsArray.length);
+            return outProductsArray;
+        }
+
+        let output = FindMinCaloriesProducts(products);
+        if (output[0] != "-"){
+            for(let i = 0; i < output.length; i++){
+                console.log(`Продукты с минимальной калорийностью: ${output[i][0]}, ${output[i][1]}, ${output[i][2]} \nСумма калорий: ${output[i][3]}`);
+            }
+        }
+        else {
+            console.log("Не удалось рассчитать набор продуктов");
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        let wayHCI = [];
+        wayHCI.push("ст. Черепаново");
+        wayHCI.push("Электричка Чер-Нск");
+        wayHCI.push("Станция Бердск");
+        wayHCI.push("Остановка пл. Горького");
+        wayHCI.push("Маршрутка 27");
+        wayHCI.push("остановка НИИ Систем");
+        wayHCI.push("500 метров на запад");
+        wayHCI.push("Конечная точка: ВКИ");
+        wayHCI.push("Обратная дорога: 500 метров на восток")
+        wayHCI.push("Остановка НИИ Систем");
+        wayHCI.push("23 автобус до остановки ул. Ветлужская");
+        wayHCI.push("ул. Ветлужская пересадка на 45 автобус");
+        wayHCI.push("45 автобус до остановки ул. Петухова");
+        wayHCI.push("3 километра на север до ул. Зорге 257/1");
+
+        let shopping = [];
+        shopping.push("10 метров на запад от остановки ул. Ветлужская");
+        shopping.push("Магазин Ярче");
+        shopping.push("от Ярче 5 метров на восток");
+        shopping.push("Ларёк с шаурмой");
+        shopping.push("5 метров на восток, остановка ул. Ветлужская");
+
+        for (let j = 0; j < shopping.length; j++){
+            wayHCI.splice(10 + j ,0,shopping[j]);
+        }
+
+        let i = 0;
+        while(i < wayHCI.length){
+            alert(wayHCI[i]);
+            i++;
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

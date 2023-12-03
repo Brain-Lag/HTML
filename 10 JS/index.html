@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function getMedal(score){
+    if (score < 10){
+        return "Нет медали"
+    }
+    if (score >= 10 && score <= 15){
+        return "Бронзовая медаль"
+    }
+    if (score > 15 && score <= 20){
+        return "Серебянная медаль"
+    }
+    else {
+        return "Золотая медаль"
+    }
+}
+
+alert(getMedal(Number(prompt("Введите количество очков:"))));
+
+
+function areArraysSame(arr1, arr2) {
+    if (arr1.length !== arr2.length) {
+        return false;
+    }
+    for (let i = 0; i < arr1.length; i++) {
+        if (arr1[i] !== arr2[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+const array1 = [1, 2, 3, 4, 5];
+const array2 = [1, 2, 3, 4, 5];
+
+console.log(areArraysSame(array1, array2));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

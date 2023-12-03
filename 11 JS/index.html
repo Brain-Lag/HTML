@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Виселица</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: grey;
+    }
+    #word-display {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    #guess-input {
+      font-size: 18px;
+      margin-right: 10px;
+      width: 100px;
+      text-align: center;
+    }
+    #submit-button {
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Виселица</h1>
+
+<div id="word-display"></div>
+<input type="text" id="guess-input" maxlength="1">
+<button id="submit-button" onclick="guessLetter()">Проверить</button>
+<div id="attempts">Попыток осталось: <span id="attempts-left"></span></div>
+
+<script>
+  // Список слов для угадывания
+  const words = ["кот", "собака", "мышь", "слон", "жираф"];
+
+  // Выбираем случайное слово из списка
+  let selectedWord = words[Math.floor(Math.random() * words.length)];
+
+  // Преобразуем слово в массив букв
+  let wordArray = selectedWord.split('');
+
+  // Массив для отслеживания угаданных букв
+  let guessedLetters = new Array(wordArray.length).fill(false);
+
+  // Количество оставшихся попыток
+  let attemptsLeft = 6;
+
+  // Отображение текущего состояния слова
+  function displayWord() {
+    let displayString = '';
+    for (let i = 0; i < wordArray.length; i++) {
+      if (guessedLetters[i]) {
+        displayString += wordArray[i] + ' ';
+      } 
+      else {
+        displayString += '_ ';
+      }
+    }
+    document.getElementById('word-display').innerText = displayString.trim();
+  }
+
+  // Обновление отображения количества попыток
+  function displayAttempts() {
+    document.getElementById('attempts-left').innerText = attemptsLeft;
+  }
+
+  // Проверка, является ли введенная буква частью слова
+  function checkLetter(letter) {
+    let found = false;
+    for (let i = 0; i < wordArray.length; i++) {
+      if (wordArray[i] === letter) {
+        guessedLetters[i] = true;
+        found = true;
+      }
+    }
+    if (!found) {
+      attemptsLeft--;
+    }
+  }
+
+  // Проверка условия победы
+  function checkWin() {
+    return guessedLetters.every(letter => letter);
+  }
+
+  // Проверка условия поражения
+  function checkLose() {
+    return attemptsLeft <= 0;
+  }
+
+  // Основная функция для угадывания буквы
+  function guessLetter() {
+    let inputElement = document.getElementById('guess-input');
+    let guessedLetter = inputElement.value.toLowerCase();
+
+    // Проверка на ввод корректной буквы
+    if (/^[а-я]$/.test(guessedLetter)) {
+      // Проверка, была ли эта буква уже угадана
+      if (guessedLetters.includes(guessedLetter)) {
+        alert('Эта буква уже угадана!');
+      } else {
+        checkLetter(guessedLetter);
+        displayWord();
+        displayAttempts();
+
+        // Проверка условий победы и поражения
+        if (checkWin()) {
+          alert('Вы победили! Загаданное слово: ' + selectedWord);
+          resetGame();
+        } else if (checkLose()) {
+          alert('Вы проиграли! Загаданное слово: ' + selectedWord);
+          resetGame();
+        }
+      }
+    } else {
+      alert('Введите корректную букву (а-я)!');
+    }
+
+    // Очищаем поле ввода
+    inputElement.value = '';
+  }
+
+  // Сброс игры
+  function resetGame() {
+    selectedWord = words[Math.floor(Math.random() * words.length)];
+    wordArray = selectedWord.split('');
+    guessedLetters = new Array(wordArray.length).fill(false);
+    attemptsLeft = 6;
+    displayWord();
+    displayAttempts();
+  }
+
+  // Инициализация отображения слова и попыток при загрузке страницы
+  displayWord();
+  displayAttempts();
+</script>
+
+</body>
+</html>

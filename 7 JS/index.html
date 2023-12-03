@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        // //1
+        // let name = prompt("Введите ваше имя: ");
+        // console.log(`Привет, ${name}`);
+        // if (name.length > 5 ){
+        //     console.log("Длинное имя");
+        // }
+        // else {
+        //     console.log("Короткое имя");
+        // }
+        
+        // //2
+        // let cats = ["Мурка", "Коржик", "Карамелька", "Компот", "Сажик", "Граф", "Масяня", "Рыжик"];
+        // let dogs = ["Бобик", "Шарик", "Барон", "Мухтар", "Шреддер", "Черныш", "Кирпич", "Джекс"];
+        // let name = prompt("Введите ваше имя:");
+
+        // if (cats.indexOf(name) !== -1) {
+        //     alert("Похоже, вы - кошка!");
+        //     window.open("https://ru.wikipedia.org/wiki/%D0%9A%D0%BE%D1%88%D0%BA%D0%B0", "_blank");
+        // }
+        // else if (dogs.indexOf(name) !== -1) {
+        //     alert("Похоже, вы - собака!");
+        //     window.open("https://ru.wikipedia.org/wiki/%D0%A1%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0", "_blank");
+        // }
+        // else {
+        //     alert("Похоже, вы - человек!");
+        //     window.open("https://ru.wikipedia.org/wiki/%D0%A7%D0%B5%D0%BB%D0%BE%D0%B2%D0%B5%D0%BA", "_blank");
+        // }
+
+        //3
+        let days = [
+            {day : "понедельник", breakfast : "овсяная каша", toGo : "колледж"},
+            {day : "вторник", breakfast : "яичница с беконом", toGo : "колледж"},
+            {day : "среда", breakfast : "бутерброды с сыром", toGo : "колледж"},
+            {day : "четверг", breakfast : "сэндвичи", toGo : "колледж"},
+            {day : "пятница", breakfast : "рисовая каша", toGo : "колледж"},
+            {day : "суббота", breakfast : "варёные куриные яйца", toGo : "театр"},
+            {day : "воскресенье", breakfast : "вафли с джемом", toGo : "кино"}
+        ];
+        let today = prompt("Какой сегодня день недели? ").toLowerCase();
+        
+        let holidays = new Date("2023-12-28");
+        let currentDay = new Date();
+        let difference = holidays - currentDay;
+        let daysDifference = Math.floor(difference/(1000 * 60 * 60 * 24));
+
+        switch(today){
+            case "понедельник":
+                alert(`На завтрак вы будете есть: ${days[0].breakfast}, после завтрака вам нужно в ${days[0].toGo}, до каникул осталось ${daysDifference} дней`);
+                window.open("https://ci.nsu.ru/", "_blank");
+                break;
+            case "вторник":
+                alert(`На завтрак вы будете есть: ${days[1].breakfast}, после завтрака вам нужно в ${days[1].toGo}, до каникул осталось ${daysDifference} дней`);
+                window.open("https://ci.nsu.ru/", "_blank");
+                break;
+            case "среда":
+                alert(`На завтрак вы будете есть: ${days[2].breakfast}, после завтрака вам нужно в ${days[2].toGo}, до каникул осталось ${daysDifference} дней`);
+                window.open("https://ci.nsu.ru/", "_blank");
+                break;
+            case "четверг":
+                alert(`На завтрак вы будете есть: ${days[3].breakfast}, после завтрака вам нужно в ${days[3].toGo}, до каникул осталось ${daysDifference} дней`);
+                window.open("https://ci.nsu.ru/", "_blank");
+                break;
+            case "пятница":
+                alert(`На завтрак вы будете есть: ${days[4].breakfast}, после завтрака вам нужно в ${days[4].toGo}, до каникул осталось ${daysDifference} дней`);
+                window.open("https://ci.nsu.ru/", "_blank");
+                break;
+            case "суббота":
+                alert(`На завтрак вы будете есть: ${days[5].breakfast}, после завтрака вам нужно в ${days[5].toGo}`);
+                window.open("https://www.globus-nsk.ru/", "_blank");
+                break;
+            case "воскресенье":
+                alert(`На завтрак вы будете есть: ${days[6].breakfast}, после завтрака вам нужно в ${days[6].toGo}`);
+                window.open("https://karofilm.ru/cinema/list?id=51", "_blank");
+                break;
+            default:
+                alert("Введённого вами дня недели не существует, проверьте правильность написания.");
+                break;
+        }
+
+        // let importantDay = new Date("2023-11-18");
+        // let currentDay = new Date();
+        // let difference = currentDay - importantDay;
+        // let dayDifference = Math.floor(difference/ (1000 * 60 * 60 * 24));
+        // alert(`С ${importantDay} прошло ${dayDifference} дней.`);
+    </script>
+</head>
+<body>
+    
+</body>
+</html> 

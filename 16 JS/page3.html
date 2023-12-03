@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Л. Н. Толстой</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="headerL">
+            <a href="page1.html">А. С. Пушкин</a>
+        </div>
+        <div class="headerR">
+            <a href="page2.html">М. Ю. Лермонтов</a>
+        </div>
+    </header>
+    <main>
+        <div class="mainText" id="dynamic">
+
+        </div>
+        <div class="actorsMainPhoto">
+			<img class="photo" src="Толстой1.jpg">
+			<img class="photo" src="Толстой2.jpg">
+			<img class="photo" src="Толстой3.jpg">
+			<img class="photo" src="Толстой4.jpg">
+		</div>
+            <script>
+                var text = [
+                `Граф Лев Никола́евич Толсто́й[К 1] (28 августа [9 сентября] 1828, Ясная Поляна, Тульская губерния, Российская империя — 
+                7 [20] ноября 1910, станция Астапово, Рязанская губерния, Российская империя) — один из наиболее известных русских 
+                писателей и мыслителей, один из величайших в мире писателей-романистов.`,
+                `Участник обороны Севастополя. Просветитель, публицист, религиозный мыслитель, его авторитетное мнение послужило 
+                причиной возникновения нового религиозно-нравственного течения — толстовства. За свои взгляды был отлучён от РПЦ. 
+                Член-корреспондент Императорской Академии наук (1873), почётный академик по разряду изящной словесности (1900).`,
+                `Был номинирован на Нобелевскую премию по литературе (1902, 1903, 1904, 1905). 
+                Впоследствии отказался от дальнейших номинаций. Классик мировой литературы.`
+                ];
+                function changeText() {
+                var randomText = text[Math.floor(Math.random() * text.length)];
+
+                $("#dynamic").text(randomText);
+                }
+                setInterval(changeText, 10000);
+
+                changeText();
+            </script>
+    </main>
+</body>
+</html>

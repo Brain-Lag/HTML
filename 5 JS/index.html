@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        // let inputArr = []
+        // for (let i = 0; i < 10; i++){
+        //     inputArr[i] = parseInt(prompt(`Введите ${i} элемент массива: `));
+        // }
+        // alert(inputArr);
+        // for (let j = inputArr.length - 1; j > 0; j--){
+        //         for(let k = 0; k < j; k++){
+        //             if (inputArr[k] > inputArr[k+1]){
+        //                 let temp = inputArr[k];
+        //                 inputArr[k] = inputArr[k+1];
+        //                 inputArr[k+1] = temp;
+        //             }
+        //         }
+        //     }
+        // alert(inputArr);
+
+        // const text = "Вася любит информатику и петь";
+        // const NAME = "Леван";
+        // let newText = text.replace("Вася", NAME);
+        // console.log(newText);
+
+        // //шифрование
+        // function encrypt(text){
+        //     const words = text.split(' ');
+        //     const encryptedText = [];
+
+        //     for (let i = 0; i < words.length; i++){
+        //         if((i+1) % 3 === 0){
+        //             encryptedText.push(words[i]);
+        //         }
+        //         else {
+        //             encryptedText.push("___");
+        //         }
+        //     }
+        //     return encryptedText.join(' ');
+        // }
+
+        // function decrypt(encryptedText){
+        //     const words = encryptedText.split(' ');
+        //     const decryptedText = [];
+
+        //     for (let i = 0; i < words.length; i++){
+        //         if(words[i] !== "___"){
+        //             decryptedText.push(words[i]);
+        //         }
+        //     }
+        //     return decryptedText.join(' ');
+        // }
+
+        // const originalText = "Я спал мало,почти три часа,проспал все автобусы, пары прошли";
+        // const encrypted = encrypt(originalText);
+        // console.log(encrypted);
+
+        // const decrypted = decrypt(encrypt);
+        // console.log(decrypted);
+
+        let x1 = 1;
+        let y1 = 2;
+        let x2 = 3;
+        let y2 = 4;
+        
+        function calculateDistance (x1, y1, x2, y2) {
+            let distance = Math.sqrt(Math.pow(x2-x1,2) + Math.pow(y2 - y1, 2));
+            return distance;
+        }
+
+        let length = calculateDistance(x1,y1,x2,y2);
+        console.log(length);
+
+        function predict(){
+            const array = 
+            [
+                "Прислушивайтесь к себе",
+                "У вас всё получится",
+                "Действуйте решительнее",
+                "Вам благоволит удача",
+                "Дела пойдут легче"
+            ]
+            let answer = array[Math.floor(Math.random() * array.length)];
+            alert(answer);
+        }
+        let dictionary = [
+            ['box', 'коробка'],
+            ['flower', 'цветок'],
+            ['cat', 'кот'],
+            ['house','дом'],
+            ['dog','собака'],
+            ['laptop','ноутбук'],
+            ['chair','стул'],
+            ['bed','кровать'],
+            ['apple','яблоко'],
+            ['car','машина']
+        ];
+
+        function translate(phrase){
+            const words = phrase.split(' ');
+            const translatedPhrase = words.map(word => {
+                const index = dictionary.findIndex(pair => pair[0] === word);
+                if(index != -1){
+                    return dictionary[index][1];
+                }
+                else {
+                    return '?';
+                }
+            });
+            return translatedPhrase.join(' ');
+        }
+
+        const engPhrase = "chair box flower bed";
+        const ruPhrase = translate(engPhrase);
+        console.log(ruPhrase);
+
+    </script>
+    <style>
+        img {
+            width: 170px;
+            height: 100px;
+        }
+        div {
+            margin-top: 5%;
+        }
+    </style>
+</head>
+<body>
+    <div align="center">
+        <img src="печенье-transformed.png" alt="печенье" onclick="predict()">
+        <img src="печенье-transformed.png" onclick="predict()">
+        <img src="печенье-transformed.png" onclick="predict()">
+        <img src="печенье-transformed.png" onclick="predict()">
+        <img src="печенье-transformed.png" onclick="predict()">
+    </div>
+</body>
+</html>

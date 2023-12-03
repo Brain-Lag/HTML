@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="script" href="script.js">
+    <script>
+
+    // var input = " !!!! приВЕдд, Я мЕДвед!!!".slice(6,24).toLowerCase();
+    //     var output = input.slice(0,1).toUpperCase() + input.slice(1,6) + input.slice(7,11) + input.slice(11,12).toUpperCase() + input.slice(12,18);
+    // console.log(output);
+
+    // var a = false;
+    // var b = false;
+    // var c = false;
+    // console.log(a || !a && b || !b && c || !c);
+
+    // var dino = [3, "динозавры", ["трицератопс", "стегозавр", 3627.5], 10];
+    // console.log(dino.length + " " + dino[2][1] + " " + dino[1]);
+
+    let input = "наша таня громко плачет, уронила в реку мячик";
+    let output = input.slice(0,1).toUpperCase() + input.slice(1,5) + input.slice(5,6).toUpperCase() + input.slice(6,45);
+    alert(output);
+    
+    let output2 = input.replace(/а/g, 'А');
+    alert(output2);
+
+    let output3 = input.slice(0,1).toUpperCase() + input.slice(1,5) + input.slice(5,6).toUpperCase() + input.slice(6,10);
+    alert(output3);
+
+    let output4 = input.slice(17,23) + input.slice(24,32);
+    alert(output4);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

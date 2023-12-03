@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ваш предпочтения</title>
+  <!-- Подключаем библиотеку jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <style>
+    img {
+        width: 150px;
+        height: 200px;
+    }
+    body{
+        background-color: lightgray;
+    }
+  </style>
+</head>
+<body align="center">
+
+  <h1>Что вы больше любите: кино, книги, автомобили?</h1>
+
+  <!-- Форма с вопросом -->
+  <form id="preferenceForm">
+    <label>
+      <input type="radio" name="preference" value="movies"> Кино
+    </label>
+    <label>
+      <input type="radio" name="preference" value="books"> Книги
+    </label>
+    <label>
+      <input type="radio" name="preference" value="cars"> Автомобили
+    </label>
+    <button type="button" onclick="displayFavorites()">Отправить</button>
+  </form>
+
+  <!-- Контейнер для вывода результатов -->
+  <div id="favoritesContainer"></div>
+
+  <script>
+    // Информация о любимых фильмах, книгах и автомобилях с изображениями
+    var favorites = {
+      movies: [
+        { title: "Мстители: Финал", image: "Финал.jpg" },
+        { title: "Человек-паук: Нет пути домой", image: "Человек-паук.jpg" },
+        { title: "Тор Рагнарёк", image: "Тор.jpg" }
+      ],
+      books: [
+        { title: "Е. Замятин - Мы", image: "мы.jpg" },
+        { title: "Ю. Несбё - Спаситель", image: "спаситель.jpg" },
+        { title: "О. Хаксли - О дивный новый мир", image: "мир.jpg" }
+      ],
+      cars: [
+        { title: "Audi A6", image: "ауди.jpg" },
+        { title: "Honda Accord", image: "honda.jpg" },
+        { title: "Chevrolet Corvette ZR1 C8", image: "шевроле.png" }
+      ],
+    };
+
+    // Функция для отображения любимых объектов в зависимости от предпочтений
+    function displayFavorites() {
+      // Получаем значение выбранного варианта
+      var preference = $("input[name='preference']:checked").val();
+
+      // Выбираем контейнер для вывода результатов
+      var container = $("#favoritesContainer");
+
+      // Очищаем контейнер
+      container.empty();
+
+      // Проверяем выбор и выводим соответствующие любимые объекты с изображениями
+      if (preference && favorites[preference]) {
+        container.append("<h2>Ваши любимые " + preference + ":</h2>");
+        container.append("<ul>");
+        favorites[preference].forEach(function(item) {
+          container.append("<li><strong>" + item.title + "</strong><br><img src='" + item.image + "' alt='" + item.title + "'></li>");
+        });
+        container.append("</ul>");
+      } else {
+        container.append("<p>Выберите предпочтение перед отправкой.</p>");
+      }
+    }
+  </script>
+
+</body>
+</html>

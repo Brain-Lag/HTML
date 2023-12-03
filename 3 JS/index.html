@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function  start(){
+        let input = parseFloat(prompt("Введите свой вес в килограммах:", ""));
+        alert(`Вес в фунтах: ${input/16}, вес в пудах: ${input/0.4}`);
+        }
+    </script>
+    <style>
+        div {
+            margin-top: 5%;
+        }
+        button {
+            width: 150px;
+            height: 50px;
+            border-radius: 20%;
+            background: linear-gradient(85deg, #fb63f9, #c2e534);
+            font-size: 15pt;
+            box-shadow:0px 0px 10px 8px ghostwhite;
+        }
+    </style>
+</head>
+<body background="gif.gif" style="background-repeat: no-repeat; background-size: cover;">
+    <div align="center">
+    <button onclick="start()">Узнать вес</button>
+    </div>
+</body>
+</html>

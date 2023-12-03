@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Крестики-Нолики</title>
+  <style>
+    td {
+      width: 50px;
+      height: 50px;
+      text-align: center;
+      font-size: 24px;
+      cursor: pointer;
+      border: 1px solid #000;
+    }
+
+    table {
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    button {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Крестики-Нолики</h2>
+  <p>Введите размер поля:</p>
+  <input type="number" id="boardSize" min="3" max="10" value="3">
+  <button onclick="startGame()">Начать игру</button>
+
+  <table id="board"></table>
+
+  <script>
+    let boardSize = 3;
+    let currentPlayer = 'X';
+    let gameBoard = [];
+    let gameOver = false;
+
+    function startGame() {
+      boardSize = parseInt(document.getElementById('boardSize').value, 10);
+      initGame();
+    }
+
+    function initGame() {
+      gameOver = false;
+      currentPlayer = 'X';
+      createBoard();
+      renderBoard();
+    }
+
+    function createBoard() {
+      gameBoard = [];
+      for (let i = 0; i < boardSize; i++) {
+        const row = [];
+        for (let j = 0; j < boardSize; j++) {
+          row.push('');
+        }
+        gameBoard.push(row);
+      }
+    }
+
+    function renderBoard() {
+      const boardElement = document.getElementById('board');
+      boardElement.innerHTML = '';
+
+      for (let i = 0; i < boardSize; i++) {
+        const rowElement = document.createElement('tr');
+        for (let j = 0; j < boardSize; j++) {
+          const cellElement = document.createElement('td');
+          cellElement.textContent = gameBoard[i][j];
+          cellElement.addEventListener('click', () => makeMove(i, j));
+          rowElement.appendChild(cellElement);
+        }
+        boardElement.appendChild(rowElement);
+      }
+    }
+
+    function makeMove(row, col) {
+      if (gameOver || gameBoard[row][col] !== '') return;
+
+      gameBoard[row][col] = currentPlayer;
+      renderBoard();
+
+      if (checkWinner()) {
+        alert(`${currentPlayer} выиграл!`);
+        gameOver = true;
+      } else if (checkTie()) {
+        alert('Ничья!');
+        gameOver = true;
+      } else {
+        switchPlayer();
+        if (currentPlayer === 'O') {
+          computerMove();
+        }
+      }
+    }
+
+    function checkWinner() {
+      // Проверка по строкам, столбцам и диагоналям
+      for (let i = 0; i < boardSize; i++) {
+        if (
+          (gameBoard[i].every(cell => cell === currentPlayer) || // По строкам
+          gameBoard.every(row => row[i] === currentPlayer)) || // По столбцам
+          (i === 0 && gameBoard.every((row, j) => row[j] === currentPlayer)) || // По главной диагонали
+          (i === boardSize - 1 && gameBoard.every((row, j) => row[boardSize - 1 - j] === currentPlayer)) // По побочной диагонали
+        ) {
+          return true;
+        }
+      }
+
+      return false;
+    }
+
+    function checkTie() {
+      return gameBoard.every(row => row.every(cell => cell !== ''));
+    }
+
+    function switchPlayer() {
+      currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+    }
+
+    function computerMove() {
+      if (gameOver) return;
+
+      let emptyCells = [];
+      for (let i = 0; i < boardSize; i++) {
+        for (let j = 0; j < boardSize; j++) {
+          if (gameBoard[i][j] === '') {
+            emptyCells.push({ row: i, col: j });
+          }
+        }
+      }
+
+      const randomIndex = Math.floor(Math.random() * emptyCells.length);
+      const computerMove = emptyCells[randomIndex];
+      makeMove(computerMove.row, computerMove.col);
+    }
+
+    initGame();
+  </script>
+</body>
+</html>

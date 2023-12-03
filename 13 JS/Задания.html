@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        // // 1
+        // function getRandomInt(max) {
+        // return Math.floor(Math.random() * (max + 1));
+        // }
+
+        // function createMatrix(rows, cols) {
+        // const matrix = [];
+        // for (let i = 0; i < rows; i++) {
+        //     matrix[i] = [];
+        //     for (let j = 0; j < cols; j++) {
+        //     matrix[i][j] = getRandomInt(4);
+        //     }
+        // }
+        // return matrix;
+        // }
+
+        // function addMatrices(matrixA, matrixB) {
+        // const resultMatrix = [];
+        // for (let i = 0; i < matrixA.length; i++) {
+        //     resultMatrix[i] = [];
+        //     for (let j = 0; j < matrixA[i].length; j++) {
+        //     resultMatrix[i][j] = matrixA[i][j] + matrixB[i][j];
+        //     }
+        // }
+        // return resultMatrix;
+        // }
+
+        // const matrixA = createMatrix(4, 4);
+        // const matrixB = createMatrix(4, 4);
+
+        // console.log('Матрица A:');
+        // console.log(matrixA);
+        // console.log('Матрица B:');
+        // console.log(matrixB);
+
+        // const resultMatrix = addMatrices(matrixA, matrixB);
+        // console.log('Результат сложения матриц A и B:');
+        // console.log(resultMatrix);
+
+        // //2
+        // function generateMatrix(rows, cols) {
+        // const matrix = [];
+        // for (let i = 0; i < rows; i++) {
+        //     matrix[i] = [];
+        //     for (let j = 0; j < cols; j++) {
+        //     matrix[i][j] = Math.floor(Math.random() * 10);
+        //     }
+        // }
+        // return matrix;
+        // }
+
+        // const matrix = generateMatrix(3, 4);
+        // console.log(matrix);
+
+        // //3 не работает
+
+        // function generateSquareMatrixWithEqualDiagonalSum(size) {
+        // const matrix = [];
+
+        // // Генерация матрицы с случайными числами от 0 до 9
+        // for (let i = 0; i < size; i++) {
+        //     matrix[i] = [];
+        //     for (let j = 0; j < size; j++) {
+        //     matrix[i][j] = Math.floor(Math.random() * 10);
+        //     }
+        // }
+        // for(let i = 0; i < size; i++){
+        //     matrix[i][i] = makeSumsEqual(matrix[i][i],matrix[size-i-1])
+        //     matrix[i][size - 1 -i] = makeSumsEqual(matrix[i][i],matrix[size-i-1])
+        // }
+        // return matrix;
+        // }
+
+        // // Пример использования функции с матрицей размером 4x4
+        // const size = 4;
+        // const squareMatrix = generateSquareMatrixWithEqualDiagonalSum(size);
+
+        // console.log(squareMatrix);
+
+        //     function makeSumsEqual(num1, num2) {
+        // const random1 = Math.floor(Math.random() * num1);
+        // const random2 = Math.floor(Math.random() * num2);
+
+        // const sum1 = num1 + random1;
+        // const sum2 = num2 + random2;
+
+        // const correction = (sum1 + sum2) / 2 - sum1;
+        // const correctedSum1 = sum1 + correction;
+        // const correctedSum2 = sum2 - correction;
+        // return correctedSum1;
+        // }
+
+        //4
+        const xCoordinate = parseFloat(prompt('Введите x-координату точки:'));
+        const yCoordinate = parseFloat(prompt('Введите y-координату точки:'));
+
+        const radius = parseFloat(prompt('Введите радиус окружности:'));
+
+        const distanceToCenter = Math.sqrt(xCoordinate ** 2 + yCoordinate ** 2);
+
+        if (distanceToCenter <= radius) {
+        console.log('Точка находится внутри окружности.');
+        } else {
+        console.log('Точка находится вне окружности.');
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        // let animals = [];
+        // animals.push("Кот");
+        // animals.push("Пес");
+        // animals.push("Ежик");
+        // console.log(animals);
+
+        // let temp = animals = [0];
+        // animals[0] = animals[2];
+        // animals[2] = temp;
+
+        //2 массива разной длины, заполнить, вывести, объединить
+        let array1 = ['один', 'два', 'три', 'четыре', 'пять'];
+        let array2 = ['синий', 'жёлтый', 'оранжевый', 'зелёный'];
+        let array3 = array1.concat(array2);
+        
+        alert(array1);
+        alert("Длина массива: " + array1.length);
+        alert(array2);
+        alert("Длина массива: " + array2.length);
+        alert(array3);
+        alert("Длина массива: " + array3.length)
+
+        let temp = array1[0]
+        array1[0] = array2[0];
+        array2[0] = temp;
+        array3 = array1.concat(array2);
+        alert(array3);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

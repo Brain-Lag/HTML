@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>М. Ю. Лермонтов</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="headerL">
+            <a href="page1.html">А. С. Пушкин</a>
+        </div>
+        <div class="headerR">
+            <a href="page3.html">Л. Н. Толстой</a>
+        </div>
+    </header>
+    <main>
+        <div class="mainText" id="dynamic">
+
+        </div>
+        <div class="actorsMainPhoto">
+			<img class="photo" src="Лермонтов1.jpg">
+			<img class="photo" src="Лермонтов2.jpg">
+			<img class="photo" src="Лермонтов3.jpg">
+			<img class="photo" src="Лермонтов4.jpg">
+		</div>
+            <script>
+                var text = [
+                `Михаи́л Ю́рьевич Ле́рмонтов[9] (3 [15] октября 1814, Москва — 15 [27] июля 1841, Пятигорск) — русский поэт, прозаик,
+                 драматург, художник. Поручик лейб-гвардии Гусарского полка.`,
+                `Творчество Лермонтова, в котором сочетаются гражданские, философские и личные мотивы, отвечавшие насущным потребностям 
+                духовной жизни русского общества, ознаменовало собой новый расцвет русской литературы и оказало большое влияние на 
+                виднейших русских писателей и поэтов XIX и XX веков. `,
+                `Произведения Лермонтова получили большой отклик в живописи, театре, кинематографе. 
+                Его стихи стали подлинным кладезем для оперного, симфонического и романсового творчества. 
+                Многие из них стали народными песнями.`
+                ];
+                function changeText() {
+                var randomText = text[Math.floor(Math.random() * text.length)];
+
+                $("#dynamic").text(randomText);
+                }
+                setInterval(changeText, 10000);
+
+                changeText();
+            </script>
+    </main>
+</body>
+</html>
